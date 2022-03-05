@@ -43,5 +43,5 @@ vendor/bin/phpunit --filter test_jwt_login
 
 ### Db migrate partialy
 ```
-- Migrate partial php artisan migrate --path='./database/migrations/2022_01_07_140709_create_sub_menus_table.php' (Nothing to migrate. = Clear migrations table)
+- php artisan migrate --path='./database/migrations/2022_01_07_140709_create_sub_menus_table.php' (Nothing to migrate. = Clear migrations table)
 ```
