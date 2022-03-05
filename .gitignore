@@ -1,0 +1,46 @@
+# stages:
+#   - autodeploy
+#   - api
+#   - lidyverse
+
+# beta:
+#   stage: autodeploy
+#   script:
+#     - echo "Deploying to api-test.baskethub.com"
+#     - sudo rsync -auv . /var/www/api.baskethub.com
+#     - sudo chown -R www-data.www-data /var/www/api.baskethub.com
+#   environment:
+#     name: api
+#     url: https://api-test.baskethub.com
+#   tags:
+#   - api-test
+#   only:
+#   - develop
+
+# prod:
+#   stage: api
+#   script:
+#     - echo "Deploying to api.baskethub.com"
+#     - sudo rsync -auv . /var/www/api.baskethub.com
+#     - sudo chown -R www-data.www-data /var/www/api.baskethub.com
+#   environment:
+#     name: api
+#     url: https://api.baskethub.com
+#   tags:
+#   - api
+#   only:
+#   - master
+
+# lidyverse:
+#   stage: lidyverse
+#   script:
+#     - echo "Deploying to api.lidyverse.com"
+#     - sudo rsync -auv . /var/www/lidyverse.com
+#     - sudo chown -R www-data.www-data /var/www/lidyverse.com
+#   environment:
+#     name: api
+#     url: https://api-test.lidyverse.com
+#   tags:
+#   - lidyverse
+#   only:
+#   - lidyverse

@@ -1,0 +1,630 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Baskethub API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "apiteam@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8081",
+            "description": "OpenApi host"
+        }
+    ],
+    "paths": {
+        "/api/v1/customers/addresses": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Get Address List",
+                "description": "Get Address List",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Create Address Data",
+                "description": "Create Address Data",
+                "operationId": "a9b22fbc12bb5db1cd327355037db333",
+                "parameters": [
+                    {
+                        "name": "alias",
+                        "in": "query",
+                        "description": "Address Title",
+                        "required": true,
+                        "example": "12"
+                    },
+                    {
+                        "name": "contact_firstname",
+                        "in": "query",
+                        "description": "Contact First Name",
+                        "required": true,
+                        "example": "Contact Firstname"
+                    },
+                    {
+                        "name": "contact_lastname",
+                        "in": "query",
+                        "description": "Contact Last Name",
+                        "required": true,
+                        "example": "Contact Lastname"
+                    },
+                    {
+                        "name": "city_id",
+                        "in": "query",
+                        "description": "City id",
+                        "required": false,
+                        "example": "35"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "City id",
+                        "required": true,
+                        "example": "TR"
+                    },
+                    {
+                        "name": "district_id",
+                        "in": "query",
+                        "description": "District Id",
+                        "required": false,
+                        "example": "100"
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "City ",
+                        "required": false,
+                        "example": "34"
+                    },
+                    {
+                        "name": "district",
+                        "in": "query",
+                        "description": "District",
+                        "required": false,
+                        "example": "100"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "Address",
+                        "required": true,
+                        "example": "Izmir / Alsancak"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "Phone",
+                        "required": true,
+                        "example": 5531839382
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true,
+                        "example": "lidyana@gmail.com"
+                    },
+                    {
+                        "name": "address_type",
+                        "in": "query",
+                        "description": "Address Type",
+                        "required": true,
+                        "example": "1"
+                    },
+                    {
+                        "name": "postal_code",
+                        "in": "query",
+                        "description": "Posta Kodu",
+                        "required": false,
+                        "example": "34400"
+                    },
+                    {
+                        "name": "tax_office",
+                        "in": "query",
+                        "description": "Vergi dairesi",
+                        "example": "Istanbul"
+                    },
+                    {
+                        "name": "tax_no",
+                        "in": "query",
+                        "description": "Vergi Numarası",
+                        "example": "123456"
+                    },
+                    {
+                        "name": "same",
+                        "in": "query",
+                        "description": "Tax No(required if address_type = 1)",
+                        "example": "123456789"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customers/addresses/{addressId}": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Get Address Data",
+                "description": "Get Address Data",
+                "operationId": "7d07c2637cbd4901402ac6563da7b747",
+                "parameters": [
+                    {
+                        "name": "addressId",
+                        "in": "path",
+                        "description": "Address Id",
+                        "required": true,
+                        "example": 5
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Delete Address Data",
+                "description": "Delete Address Data",
+                "operationId": "a862b02f41eabd97f8ba90361ff19fb8",
+                "parameters": [
+                    {
+                        "name": "addressId",
+                        "in": "path",
+                        "description": "Address Id",
+                        "required": true,
+                        "example": "4"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Address Data deleted successfully"
+                    },
+                    "404": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Update Address Data",
+                "description": "Update Address Data",
+                "operationId": "8c05e5fcc416efb49512655bfb9b8dd3",
+                "parameters": [
+                    {
+                        "name": "addressId",
+                        "in": "path",
+                        "description": "Address Id",
+                        "required": true,
+                        "example": "12"
+                    },
+                    {
+                        "name": "alias",
+                        "in": "query",
+                        "description": "Address Title",
+                        "required": true,
+                        "example": "Title"
+                    },
+                    {
+                        "name": "contact_firstname",
+                        "in": "query",
+                        "description": "Contact First Name",
+                        "required": true,
+                        "example": "Contact Firstname"
+                    },
+                    {
+                        "name": "contact_lastname",
+                        "in": "query",
+                        "description": "Contact Last Name",
+                        "required": true,
+                        "example": "Contact Lastname"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "City id",
+                        "required": true,
+                        "example": "TR"
+                    },
+                    {
+                        "name": "city_id",
+                        "in": "query",
+                        "description": "City id",
+                        "required": false,
+                        "example": "34"
+                    },
+                    {
+                        "name": "district_id",
+                        "in": "query",
+                        "description": "District Id",
+                        "required": false,
+                        "example": "100"
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "City ",
+                        "required": false,
+                        "example": "34"
+                    },
+                    {
+                        "name": "district",
+                        "in": "query",
+                        "description": "District",
+                        "required": false,
+                        "example": "100"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "Address",
+                        "required": true,
+                        "example": "Izmir / Alsancak"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "Phone",
+                        "required": true,
+                        "example": 5531839382
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true,
+                        "example": "lidyana@gmail.com"
+                    },
+                    {
+                        "name": "address_type",
+                        "in": "query",
+                        "description": "Address Type",
+                        "required": true,
+                        "example": "1"
+                    },
+                    {
+                        "name": "postal_code",
+                        "in": "query",
+                        "description": "Posta Kodu",
+                        "required": false,
+                        "example": "34400"
+                    },
+                    {
+                        "name": "tax_office",
+                        "in": "query",
+                        "description": "Tax Office(required if address_type = 1)",
+                        "example": "Istanbul"
+                    },
+                    {
+                        "name": "tax_no",
+                        "in": "query",
+                        "description": "Tax No(required if address_type = 1)",
+                        "example": "123456"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login Customer",
+                "description": "Login Customer",
+                "operationId": "5db09a35f965c6ca7529ed3c3cae8e21",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Customer e-mail address",
+                        "required": true,
+                        "example": "deneme123@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true,
+                        "example": 123456
+                    },
+                    {
+                        "name": "basket_token",
+                        "in": "query",
+                        "description": "Basket Token",
+                        "example": "AY9XUFgCUGO3l44LtrZ7inj1642520212"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login Customer"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register Customer",
+                "description": "Register Customer",
+                "operationId": "48e49e48019e8b141753cb515a26100b",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Customer e-mail address",
+                        "required": true,
+                        "example": "deneme123@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true,
+                        "example": 123456
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "description": "First name",
+                        "required": true,
+                        "example": "lidFirstName"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "description": "Last name",
+                        "required": true,
+                        "example": "lidLastName"
+                    },
+                    {
+                        "name": "birthday",
+                        "in": "query",
+                        "description": "Birthday",
+                        "required": false,
+                        "example": "01/01/2022"
+                    },
+                    {
+                        "name": "wants_news",
+                        "in": "query",
+                        "description": "Wants News(0 or 1)",
+                        "required": false,
+                        "example": 1
+                    },
+                    {
+                        "name": "basket_token",
+                        "in": "query",
+                        "description": "Basket Token",
+                        "required": false,
+                        "example": "b6IK74nD3dJjUU9fzTuFnZc1643123452"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/guest-register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Guest Register Customer",
+                "description": "Guest Register Customer",
+                "operationId": "ee5cfc63184c0fc127da7b6e9027ca81",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Customer e-mail address",
+                        "required": true,
+                        "example": "deneme123@gmail.com"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/customers/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout Customer",
+                "description": "Logout Customer",
+                "operationId": "b4238a61c5d9aae915763abc9ce6a4e8",
+                "responses": {
+                    "200": {
+                        "description": "Logout Customer"
+                    },
+                    "404": {
+                        "description": "Wrong Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/refresh-token": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh Token",
+                "description": "Refresh Token",
+                "operationId": "04b7514b4066fdac575fe454abfcb9d0",
+                "responses": {
+                    "200": {
+                        "description": "Refresh Token"
+                    },
+                    "404": {
+                        "description": "Wrong Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customers/update-password": {
+            "patch": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Update Customer Password",
+                "description": "Update Customer Password",
+                "operationId": "fde4da641320f8e52b00e09d25f4e216",
+                "parameters": [
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true,
+                        "example": "123456"
+                    },
+                    {
+                        "name": "new_password",
+                        "in": "query",
+                        "description": "New Password",
+                        "required": true,
+                        "example": "123456new"
+                    },
+                    {
+                        "name": "new_password_confirmation",
+                        "in": "query",
+                        "description": "New Password Confirm",
+                        "required": true,
+                        "example": "123456new"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customer Password updated successfully"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
