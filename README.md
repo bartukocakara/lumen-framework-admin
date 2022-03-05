@@ -4,6 +4,11 @@
 docker-compose up -d --build
 ```
 
+# Docker Run
+```
+docker-compose up
+```
+
 ### https://github.com/DarkaOnLine/SwaggerLume
 ```
 php artisan swagger-lume:generate
