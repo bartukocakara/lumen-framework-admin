@@ -4,15 +4,14 @@
 docker-compose up -d --build
 ```
 
-application by using URL:
-
-```
-http://host.docker.internal:8081
-```
-
 ### https://github.com/DarkaOnLine/SwaggerLume
 ```
 php artisan swagger-lume:generate
+```
+
+app url
+```
+http://localhost:8081/api/v1/documentation
 ```
 
 Unit Test
