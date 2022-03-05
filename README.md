@@ -1,3 +1,8 @@
+### Design Pattern
+```
+Controller => Service => Repository
+```
+
 ### Build
 
 ```
@@ -9,6 +14,7 @@ docker-compose up -d --build
 docker-compose up
 ```
 
+```
 ### https://github.com/DarkaOnLine/SwaggerLume
 ```
 php artisan swagger-lume:generate
