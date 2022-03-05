@@ -38,7 +38,7 @@ vendor/bin/phpunit --filter test_jwt_login
 
 ### Db migrate 
 ```
-- Migrate partial php artisan migrate
+- php artisan migrate
 ```
 
 ### Db migrate partialy
