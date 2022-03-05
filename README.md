@@ -1,3 +1,5 @@
+### This api project is for cms of https://baskethub.netlify.app/ project 
+
 ### Design Pattern
 ```
 Controller => Service => Repository
