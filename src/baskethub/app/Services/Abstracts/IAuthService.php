@@ -8,8 +8,6 @@ interface IAuthService
 {
     public function register($request);
 
-    public function guestRegister($request);
-
     public function registerConfirm($request);
 
     public function login($request);

@@ -29,6 +29,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'birthday'
+
     ];
 
     public $timestamps = false;

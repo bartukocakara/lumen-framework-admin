@@ -38,13 +38,16 @@ class AuthRepository extends BaseRepository implements IAuthRepository
         $user = new User();
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->first_name = $request->last_name;
+        $user->last_name =  $request->email;
+        $user->birthday = isset($request->birthday) ? date_format(date_create(str_replace('/','-', $request["birthday"])), "Y-m-d" ) : null;
         $user->save();
         $credentials = $request->only('email', 'password');
         $token = $this->guard()->attempt($credentials);
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->respondWithTokenCreateUser($token);
         }
-        return response()->json(['error' => 'login_error'], 401);
+        return $this->badRequestResponse();
     }
 
     private function guard()
@@ -60,21 +63,6 @@ class AuthRepository extends BaseRepository implements IAuthRepository
         }
 
         return $this->createCustomer($request);
-    }
-
-    public function registerConfirmValidate($request)
-    {
-        $data = $request->only("first_name", "last_name", "email", "password", "password_confirmation", "birthday", "wants_news");
-        $validator = Validator::make($data, [
-            'first_name' => 'required|string|min:2|max:50',
-            'last_name' => 'required|string|min:2|max:50',
-            'email' => 'required|email:rfc,dns|unique:customers',
-            'password' => 'required|string|min:6|max:50|confirmed',
-            'password_confirmation' => 'required|string|min:6|max:50',
-            'birthday' => 'nullable|date',
-        ]);
-
-        return $validator;
     }
 
     public function login($request)

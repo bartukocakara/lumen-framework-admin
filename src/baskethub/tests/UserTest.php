@@ -29,8 +29,11 @@ class UserTest extends TestCase
     public function test_register() : void
     {
         $payload = [
-            "email" => "test123467@gmail.com",
-            "password" => "123456"
+            "email" => "deneme-bartu@gmail.com",
+            "password" => "123456",
+            "first_name" => "bartu",
+            "last_name" => "kocakara",
+            "birthday" => "06/06/1993",
         ];
         $headers = [
             "Accept" => "application/json",

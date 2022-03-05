@@ -5,9 +5,13 @@ namespace App\Services\Concrete;
 use App\Repositories\Abstracts\IAuthRepository;
 use App\Services\Abstracts\IAuthService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Traits\ApiResponse;
+
 
 class AuthService implements IAuthService
 {
+    use ApiResponse;
     /**
      * @var IAuthRepository
      */
@@ -27,12 +31,19 @@ class AuthService implements IAuthService
      */
     public function register($request)
     {
-        return $this->repository->register($request);
-    }
+        $data = $request->only('email', 'password', 'first_name', 'last_name', 'birthday');
+        $validator = Validator::make($data, [
+                'first_name' => 'required|string|min:2|max:50',
+                'last_name' => 'required|string|min:2|max:50',
+                'email' => 'required|email:rfc,dns|unique:users',
+                'password' => 'required|string|min:6|max:50',
+                'birthday' => 'nullable|date_format:d/m/Y',
+            ]);
+        if ($validator->fails()) {
+                return $this->validationFailResponse($validator->messages());
+        }
 
-    public function guestRegister($request)
-    {
-        return $this->repository->guestRegister($request);
+        return $this->repository->register($request);
     }
 
     public function registerConfirm($request)
